@@ -1,0 +1,10 @@
+{
+    "name": "timmackay/stt",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Timmackay\\Stt\\": "src/"
+        }
+    },
+    "require": {}
+}
