@@ -3,15 +3,29 @@ namespace Timmackay\Stt;
 
 class CsvToArray
 {
-    protected $pathToCsv;
-    protected $data = [];
+    private $pathToCsv;
+    private $data = [];
 
     public function __construct($pathToCsv)
     {
         $this->pathToCsv = $pathToCsv;
     }
 
-    protected function convertCsvToArray(): void
+    public function filterByWhitelist(array $whitelist): array
+    {
+        $this->convertCsvToArray();
+
+        //reset array for a clean output
+        $filteredData = [];
+
+        foreach ($this->data as $dataRow) {
+            $filteredData[] = array_intersect_key($dataRow, $whitelist);
+        }
+
+        return $filteredData;
+    }
+
+    private function convertCsvToArray(): void
     {
         $handle = fopen($this->pathToCsv,'r');
 
