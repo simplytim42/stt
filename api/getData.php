@@ -1,7 +1,7 @@
 <?php
 namespace Timmackay\Stt;
 
-require '../init.php';
+require 'vendor/autoload.php';
 
 
 //throw error if no 'data' value was submitted
@@ -27,7 +27,8 @@ if ($_GET['data'] === 'sac') {
     $whitelist = DataWhitelists::scoutAndCamera();
 }
 
-$csvToArray = new CsvToArray(DEFAULT_DATA_FILEPATH);
+$defaultFile = $_SERVER['DOCUMENT_ROOT'].'/data/footy.csv';
+$csvToArray = new CsvToArray($defaultFile);
 
 $data = $csvToArray->filterByWhitelist($whitelist);
 
