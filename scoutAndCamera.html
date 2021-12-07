@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scouts And Cameras</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="./js/app.js"></script>
+</head>
+<body>
+
+    <div id="derby_sac"></div>
+    <div id="ipswich_sac"></div>
+
+    <script>
+        //Load API
+        google.charts.load('current', {'packages':['corechart']});
+
+        //set callback for when API has loaded
+        google.charts.setOnLoadCallback(buildSacCharts);
+
+        function buildSacCharts(data) {
+             //get data from server
+            fetch('./api/getData.php?data=sac')
+            .then(response => response.json())
+            .then(responseData => {
+
+                //call two more functions to draw the specific charts
+                drawSac('Derby', responseData.Derby, 'derby_sac');
+                drawSac('Ipswich', responseData.Ipswich, 'ipswich_sac');
+
+            });
+        }
+    </script>
+    
+</body>
+</html>

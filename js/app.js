@@ -15,9 +15,9 @@ function drawLocations(team, locationData, div_id) {
     }
 
     var options = {
-        'title':'Where '+ team +' has Played',
-        'width':700,
-        'height':400
+        title: 'Where '+ team +' has Played',
+        width: 700,
+        height: 400
     };
 
     //draw chart
@@ -42,12 +42,44 @@ function drawGoals(team, GoalData, div_id) {
     }
 
     var options = {
-        'title':'Types of Goals '+ team +' has Scored',
-        'width':700,
-        'height':400
+        title: 'Types of Goals '+ team +' has Scored',
+        width: 700,
+        height: 400
     };
 
     //draw chart
     var chart = new google.visualization.PieChart(document.getElementById(div_id));
+    chart.draw(data, options);
+}
+
+function drawSac(team, SacData, div_id) {
+
+    //instatiate new DataTable object
+    var data = new google.visualization.DataTable();
+
+    data.addColumn('date', 'Date');
+    data.addColumn('number', 'Camera Footage');
+    data.addColumn('number', 'Scouting Reports');
+
+    //loop through locationData and add it to the DataTable for our Chart
+    SacData.forEach(element => {
+        for (var name in element) {
+            data.addRow([
+                new Date(element['Date']),
+                parseInt(element['Camera Footage']),
+                parseInt(element['Scouting Reports'])
+            ]);
+        }
+    });
+
+
+    var options = {
+        title: 'Camera Footage and Scouting Reports for '+ team,
+        width: 700,
+        height: 400
+    };
+
+    //draw chart
+    var chart = new google.visualization.LineChart(document.getElementById(div_id));
     chart.draw(data, options);
 }

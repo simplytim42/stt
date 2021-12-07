@@ -25,7 +25,7 @@ if ($_GET['data'] === 'tog') {
 }
 
 if ($_GET['data'] === 'sac') {
-    $data = ScoutAndCamera::getData();
+    $data = ScoutAndCamera::getData($csvToArray);
 }
 
 echo json_encode($data);
