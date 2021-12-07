@@ -13,19 +13,19 @@ $csvToArray = new CsvToArray($defaultFile);
 
 //react to the data value requested
 if ($_GET['data'] === 'loc') {
-    $data = Locations::getLocations($csvToArray);
+    $data = Locations::getData($csvToArray);
 }
 
 // if ($_GET['data'] === 'gag') {
 //     $whitelist = DataWhitelists::gamesAndGoals();
 // }
 
-// if ($_GET['data'] === 'tog') {
-//     $whitelist = DataWhitelists::typesOfGoals();
-// }
+if ($_GET['data'] === 'tog') {
+    $data = TypesOfGoals::getData($csvToArray);
+}
 
-// if ($_GET['data'] === 'sac') {
-//     $whitelist = DataWhitelists::scoutAndCamera();
-// }
+if ($_GET['data'] === 'sac') {
+    $data = ScoutAndCamera::getData();
+}
 
 echo json_encode($data);

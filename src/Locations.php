@@ -3,7 +3,7 @@ namespace Timmackay\Stt;
 
 class Locations
 {
-    static public function getLocations(CsvtoArray $csvToArray): array
+    static public function getData(CsvtoArray $csvToArray): array
     {
         $returnData = [
             'Derby' => [],
