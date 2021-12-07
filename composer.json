@@ -6,5 +6,7 @@
             "Timmackay\\Stt\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.20"
+    }
 }
