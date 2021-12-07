@@ -5,8 +5,5 @@
         "psr-4": {
             "Timmackay\\Stt\\": "src/"
         }
-    },
-    "require": {
-        "phpoffice/phpspreadsheet": "^1.20"
     }
 }
