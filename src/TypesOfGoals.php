@@ -5,6 +5,7 @@ class TypesOfGoals
 {
     static public function getData(CsvtoArray $csvToArray): array
     {
+        //prepare dataset
         $returnData = [
             'Derby' => [
                 'Set Piece Goals' => 0,

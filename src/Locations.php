@@ -5,6 +5,7 @@ class Locations
 {
     static public function getData(CsvtoArray $csvToArray): array
     {
+        //prepare dataset
         $returnData = [
             'Derby' => [],
             'Ipswich' => []
