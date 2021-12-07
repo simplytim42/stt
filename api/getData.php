@@ -1,11 +1,11 @@
 <?php
 namespace Timmackay\Stt;
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 
 //throw error if no 'data' value was submitted
-if (!$_GET['data']) exit('Incorrect usage of API');
+if (!$_GET['data']) exit('{"Error":"Incorrect usage of API"}');
 
 
 //build whitelist of data fields
