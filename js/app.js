@@ -1,21 +1,23 @@
-function drawLocations(team, locationData, div_id) {
+function drawLocations(locationData, div_id) {
 
     //instatiate new DataTable object
     var data = new google.visualization.DataTable();
 
     data.addColumn('string', 'Location');
-    data.addColumn('number', 'Times Played');
+    data.addColumn('number', 'Derby');
+    data.addColumn('number', 'Ipswich');
 
     //loop through locationData and add it to the DataTable for our Chart
     for (var name in locationData) {
         data.addRow([
             name,
-            locationData[name]
+            locationData[name].Derby,
+            locationData[name].Ipswich
         ]);
     }
 
     var options = {
-        title: team
+        legend: 'bottom'
     };
 
     //draw chart

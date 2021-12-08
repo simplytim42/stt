@@ -11,8 +11,7 @@
     <main>
         <section>
             <h1>Locations of Games</h1>
-            <div id="derby" class="locChart"></div>
-            <div id="ipswich" class="locChart"></div>
+            <div id="locations" class="locChart"></div>
         </section>
     </main>
 
@@ -29,8 +28,7 @@
             .then(response => response.json())
             .then(responseData => {
                 //call two more functions to draw the specific charts
-                drawLocations('Derby', responseData.Derby, 'derby');
-                drawLocations('Ipswich', responseData.Ipswich, 'ipswich');
+                drawLocations(responseData, 'locations');
             });
         }
     </script>
