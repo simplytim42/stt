@@ -15,9 +15,7 @@ function drawLocations(team, locationData, div_id) {
     }
 
     var options = {
-        title: 'Where '+ team +' has Played',
-        width: 700,
-        height: 400
+        title: team
     };
 
     //draw chart
@@ -42,9 +40,8 @@ function drawGoals(team, GoalData, div_id) {
     }
 
     var options = {
-        title: 'Types of Goals '+ team +' has Scored',
-        width: 700,
-        height: 400
+        title: team,
+        legend: 'left'
     };
 
     //draw chart
@@ -74,9 +71,7 @@ function drawSac(team, SacData, div_id) {
 
 
     var options = {
-        title: 'Camera Footage and Scouting Reports for '+ team,
-        width: 700,
-        height: 400
+        title: team
     };
 
     //draw chart
@@ -108,9 +103,7 @@ function drawGag(team, GagData, div_id) {
 
 
     var options = {
-        title: 'Games Played and Goals Scored for '+ team,
-        width: 700,
-        height: 400
+        title: team
     };
 
     //draw chart
