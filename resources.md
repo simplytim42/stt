@@ -5,6 +5,7 @@
 - developer.mozilla.org
 - json.org
 - css-tricks.com
+- w3schools.com
 
 # Open Source Code
 - Google Charts API
