@@ -11,6 +11,7 @@
     <main>
         <section>
             <h1>Resources</h1>
+            
             <h2>Research</h2>
             <ul>
                 <li>google.com</li>
