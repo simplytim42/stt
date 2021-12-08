@@ -17,20 +17,6 @@ class CsvToArray
         return $this->data;
     }
 
-    // public function filterByWhitelist(array $whitelist): array
-    // {
-    //     $this->convertCsvToArray();
-
-    //     //reset array for a clean output
-    //     $filteredData = [];
-
-    //     foreach ($this->data as $dataRow) {
-    //         $filteredData[] = array_intersect_key($dataRow, $whitelist);
-    //     }
-
-    //     return $filteredData;
-    // }
-
     protected function convertCsvToArray(): void
     {
         $handle = fopen($this->pathToCsv,'r');

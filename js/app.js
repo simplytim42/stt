@@ -83,3 +83,37 @@ function drawSac(team, SacData, div_id) {
     var chart = new google.visualization.LineChart(document.getElementById(div_id));
     chart.draw(data, options);
 }
+
+function drawGag(team, GagData, div_id) {
+
+    //instatiate new DataTable object
+    var data = new google.visualization.DataTable();
+
+    data.addColumn('date', 'Date');
+    data.addColumn('number', 'Games Played');
+    data.addColumn('number', 'Goals Scored');
+    data.addColumn('number', 'Goals Against');
+
+    //loop through locationData and add it to the DataTable for our Chart
+    GagData.forEach(element => {
+        for (var name in element) {
+            data.addRow([
+                new Date(element['Date']),
+                parseInt(element['Games Played']),
+                parseInt(element['Goals Scored']),
+                parseInt(element['Goals Against'])
+            ]);
+        }
+    });
+
+
+    var options = {
+        title: 'Games Played and Goals Scored for '+ team,
+        width: 700,
+        height: 400
+    };
+
+    //draw chart
+    var chart = new google.visualization.LineChart(document.getElementById(div_id));
+    chart.draw(data, options);
+}
