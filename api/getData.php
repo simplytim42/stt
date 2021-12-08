@@ -4,7 +4,9 @@ namespace Timmackay\Stt;
 require '../vendor/autoload.php';
 
 //throw error if no data value was submitted
-if (!in_array($_GET['data'], ['loc', 'gag', 'tog', 'sac'])) exit('{"Error":"Incorrect usage of API"}');
+if (!in_array($_GET['data'], ['loc', 'gag', 'tog', 'sac', 'custom'])){
+    exit('{"Error":"Incorrect usage of API data"}');
+}
 
 //prepare to react
 $defaultFile = $_SERVER['DOCUMENT_ROOT'].'/data/footy.csv';
@@ -26,6 +28,12 @@ if ($_GET['data'] === 'tog') {
 
 if ($_GET['data'] === 'sac') {
     $data = ScoutAndCamera::getData($csvToArray);
+}
+
+if ($_GET['data'] === 'custom') {
+    //throw error if no args were submitted
+    if (empty($_GET['args'])) exit('{"Error":"Incorrect usage of API args"}');
+    $data = CustomRequest::getData($csvToArray);
 }
 
 //send data to client as json
