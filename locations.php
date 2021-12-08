@@ -3,6 +3,7 @@
 <head>
     <title>Locations</title>
     <?php require './includes/headContent.html' ?>
+    <script defer src="./js/loadLocChart.js"></script>
 </head>
 <body>
 
@@ -15,22 +16,5 @@
         </section>
     </main>
 
-    <script>
-        //Load API
-        google.charts.load('current', {'packages':['corechart']});
-
-        //set callback for when API has loaded
-        google.charts.setOnLoadCallback(buildLocationCharts);
-
-        function buildLocationCharts(data) {
-             //get data from server
-            fetch('./api/getData.php?data=loc')
-            .then(response => response.json())
-            .then(responseData => {
-                //call two more functions to draw the specific charts
-                drawLocations(responseData, 'locations');
-            });
-        }
-    </script>
 </body>
 </html>

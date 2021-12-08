@@ -1,3 +1,47 @@
+function buildGagCharts() {
+    //get data from server
+    fetch('./api/getData.php?data=gag')
+    .then(response => response.json())
+    .then(responseData => {
+        //call two more functions to draw the specific charts
+        drawGag('Derby', responseData.Derby, 'derby');
+        drawGag('Ipswich', responseData.Ipswich, 'ipswich');
+    });
+}
+
+function buildLocationCharts() {
+    //get data from server
+    fetch('./api/getData.php?data=loc')
+    .then(response => response.json())
+    .then(responseData => {
+        //call two more functions to draw the specific charts
+        drawLocations(responseData, 'locations');
+    });
+}
+
+function buildSacCharts() {
+    //get data from server
+    fetch('./api/getData.php?data=sac')
+    .then(response => response.json())
+    .then(responseData => {
+        //call two more functions to draw the specific charts
+        drawSac('Derby', responseData.Derby, 'derby');
+        drawSac('Ipswich', responseData.Ipswich, 'ipswich');
+    });
+}
+
+function buildGoalCharts() {
+    //get data from server
+    fetch('./api/getData.php?data=tog')
+    .then(response => response.json())
+    .then(responseData => {
+        //call two more functions to draw the specific charts
+        drawGoals('Derby', responseData.Derby, 'derby');
+        drawGoals('Ipswich', responseData.Ipswich, 'ipswich');
+    });
+}
+
+
 function drawLocations(locationData, div_id) {
 
     //instatiate new DataTable object

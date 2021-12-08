@@ -3,6 +3,7 @@
 <head>
     <title>Games and Goals</title>
     <?php require './includes/headContent.html' ?>
+    <script defer src="./js/loadGagChart.js"></script>
 </head>
 <body>
 
@@ -16,24 +17,5 @@
         </section>
     </main>
 
-
-    <script>
-        //Load API
-        google.charts.load('current', {'packages':['corechart']});
-
-        //set callback for when API has loaded
-        google.charts.setOnLoadCallback(buildGagCharts);
-
-        function buildGagCharts(data) {
-             //get data from server
-            fetch('./api/getData.php?data=gag')
-            .then(response => response.json())
-            .then(responseData => {
-                //call two more functions to draw the specific charts
-                drawGag('Derby', responseData.Derby, 'derby');
-                drawGag('Ipswich', responseData.Ipswich, 'ipswich');
-            });
-        }
-    </script>
 </body>
 </html>

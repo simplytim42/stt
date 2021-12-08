@@ -3,6 +3,7 @@
 <head>
     <title>Types of Goals</title>
     <?php require './includes/headContent.html' ?>
+    <script defer src="./js/loadTogChart.js"></script>
 </head>
 <body>
 
@@ -16,23 +17,5 @@
         </section>
     </main>
 
-    <script>
-        //Load API
-        google.charts.load('current', {'packages':['corechart']});
-
-        //set callback for when API has loaded
-        google.charts.setOnLoadCallback(buildGoalCharts);
-
-        function buildGoalCharts(data) {
-             //get data from server
-            fetch('./api/getData.php?data=tog')
-            .then(response => response.json())
-            .then(responseData => {
-                //call two more functions to draw the specific charts
-                drawGoals('Derby', responseData.Derby, 'derby');
-                drawGoals('Ipswich', responseData.Ipswich, 'ipswich');
-            });
-        }
-    </script>
 </body>
 </html>
