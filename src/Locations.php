@@ -6,24 +6,23 @@ class Locations
     static public function getData(CsvtoArray $csvToArray): array
     {
         //prepare dataset
-        $returnData = [
-            'Derby' => [],
-            'Ipswich' => []
-        ];
+        $returnData = [];
 
-        
         //loop through array and extract relevant location data
         foreach ($csvToArray->getArray() as $data) {
             $team = $data['Team'];
             $location = $data['Location'];
-
-            if (!key_exists($location, $returnData[$team])) {
-                //this location hasn't yet been added to the array so we can add it now
-                $returnData[$team][$location] = 0;
+            
+            if (!key_exists($location, $returnData)) {
+                //new location found so add it to array
+                $returnData[$location] = [
+                    'Derby' => 0,
+                    'Ipswich' => 0
+                ];
             }
 
-            //increment the location by one to create a tally
-            $returnData[$team][$location]++;
+            //increment the location counter
+            $returnData[$location][$team]++;
         }
 
         return $returnData;
