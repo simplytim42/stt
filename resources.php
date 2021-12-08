@@ -21,6 +21,8 @@
                 <li>json.org</li>
                 <li>css-tricks.com</li>
                 <li>wsschools.com</li>
+                <li>app.pluralsight.com</li>
+                <li>docs.aws.amazon.com</li>
             </ul>
 
             <h2>Open Source Code</h2>
