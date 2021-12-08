@@ -19,17 +19,20 @@ class CsvToArray
 
     protected function convertCsvToArray(): void
     {
+        //open csv file
         $handle = fopen($this->pathToCsv,'r');
 
+        //extract headers
         $headers = fgetcsv($handle, 1000, ',');
         $headerCount = count($headers);
 
         $dataCount = 0;
 
+        //read rest of csv file
         while ($data = fgetcsv($handle, 1000, ',')) {
 
             if (empty($data[0])) {
-                //row is not complete
+                //row is not complete so ignore
                 continue;
             }
             

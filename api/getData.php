@@ -28,4 +28,5 @@ if ($_GET['data'] === 'sac') {
     $data = ScoutAndCamera::getData($csvToArray);
 }
 
+//send data to client as json
 echo json_encode($data);
