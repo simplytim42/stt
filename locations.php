@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Locations</title>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="./js/app.js"></script>
+    <?php require './includes/headContent.html' ?>
 </head>
 <body>
 
-    <div id="derby_locations"></div>
-    <div id="ipswich_locations"></div>
+    <?php require './includes/nav.html' ?>
+
+    <main>
+        <section>
+            <h1>Locations of Games</h1>
+            <div id="derby" class="locChart"></div>
+            <div id="ipswich" class="locChart"></div>
+        </section>
+    </main>
 
     <script>
         //Load API
@@ -25,14 +28,11 @@
             fetch('./api/getData.php?data=loc')
             .then(response => response.json())
             .then(responseData => {
-
                 //call two more functions to draw the specific charts
-                drawLocations('Derby', responseData.Derby, 'derby_locations');
-                drawLocations('Ipswich', responseData.Ipswich, 'ipswich_locations');
-
+                drawLocations('Derby', responseData.Derby, 'derby');
+                drawLocations('Ipswich', responseData.Ipswich, 'ipswich');
             });
         }
     </script>
-    
 </body>
 </html>

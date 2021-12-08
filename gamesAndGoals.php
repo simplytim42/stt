@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games And Goals</title>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="./js/app.js"></script>
+    <title>Games and Goals</title>
+    <?php require './includes/headContent.html' ?>
 </head>
 <body>
 
-    <div id="derby_gag"></div>
-    <div id="ipswich_gag"></div>
+    <?php require './includes/nav.html' ?>
+
+    <main>
+        <section>
+            <h1>Games Played and Goals Scored (Smoothed)</h1>
+            <div id="derby" class="gagChart"></div>
+            <div id="ipswich" class="gagChart"></div>
+        </section>
+    </main>
+
 
     <script>
         //Load API
@@ -25,14 +29,11 @@
             fetch('./api/getData.php?data=gag')
             .then(response => response.json())
             .then(responseData => {
-
                 //call two more functions to draw the specific charts
-                drawGag('Derby', responseData.Derby, 'derby_gag');
-                drawGag('Ipswich', responseData.Ipswich, 'ipswich_gag');
-
+                drawGag('Derby', responseData.Derby, 'derby');
+                drawGag('Ipswich', responseData.Ipswich, 'ipswich');
             });
         }
     </script>
-    
 </body>
 </html>

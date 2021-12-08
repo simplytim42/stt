@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Types of Goals</title>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="./js/app.js"></script>
+    <?php require './includes/headContent.html' ?>
 </head>
 <body>
 
-    <div id="derby_goals"></div>
-    <div id="ipswich_goals"></div>
+    <?php require './includes/nav.html' ?>
+
+    <main>
+        <section>
+            <h1>Types of Goals Scored</h1>
+            <div id="derby" class="togChart"></div>
+            <div id="ipswich" class="togChart"></div>
+        </section>
+    </main>
 
     <script>
         //Load API
@@ -25,14 +28,11 @@
             fetch('./api/getData.php?data=tog')
             .then(response => response.json())
             .then(responseData => {
-
                 //call two more functions to draw the specific charts
-                drawGoals('Derby', responseData.Derby, 'derby_goals');
-                drawGoals('Ipswich', responseData.Ipswich, 'ipswich_goals');
-
+                drawGoals('Derby', responseData.Derby, 'derby');
+                drawGoals('Ipswich', responseData.Ipswich, 'ipswich');
             });
         }
     </script>
-    
 </body>
 </html>
